@@ -13,13 +13,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <%# <div class="container p-0"> %>
     <%= render 'home/header' %></div>
 </br>
 <% if notice %>
   <%= render 'layouts/alerts' %>
 <% end %>
-<div class="container">
-  <br/>
+<div class="container p-0">
   <%= yield %>
 </div>
 <!-- Optional JavaScript; choose one of the two! -->

@@ -1,13 +1,12 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.navbar {
-  margin: 0;
-}
+
 .homepage {
   height: 100vh;
   position: relative;
-  top: -50px;
+  top: -24px;
+
   background-image: image-url("bg-marvel.jpg");
   // background-position: center;
   background-repeat: no-repeat;
@@ -26,7 +25,7 @@
   // background-color: red;
   height: 100vh;
   position: relative;
-  top: -50px;
+  top: -24px;
   background-image: image-url("bg-avengers.jpg");
   background-size: cover;
 }
