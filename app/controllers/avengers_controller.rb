@@ -1,5 +1,7 @@
 class AvengersController < ApplicationController
   before_action :set_avenger, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /avengers or /avengers.json
   def index
@@ -12,17 +14,17 @@ class AvengersController < ApplicationController
 
   # GET /avengers/new
   def new
-    @avenger = Avenger.new
+    # @avenger = Avenger.new
+    @avenger = current_user.avengers.build
   end
-
   # GET /avengers/1/edit
   def edit
   end
 
   # POST /avengers or /avengers.json
   def create
-    @avenger = Avenger.new(avenger_params)
-
+   # @avenger = Avenger.new(avenger_params)
+    @avenger = current_user.avengers.build(avenger_params)
     respond_to do |format|
       if @avenger.save
         format.html { redirect_to @avenger, notice: "Avenger was successfully created." }
@@ -54,6 +56,12 @@ class AvengersController < ApplicationController
       format.html { redirect_to avengers_url, notice: "Avenger was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+ # The correct user is the one to belong to this id current user
+  def correct_user
+    @avenger = current_user.avengers.find_by(id: params[:id])
+    redirect_to avengers_path, notice:" Not Authorized" if @avenger.nil?
   end
 
   private
