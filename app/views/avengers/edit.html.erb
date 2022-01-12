@@ -3,4 +3,5 @@
 <%# Show button remove from view %>
 <% link_to 'Show', @avenger %>
 </br>
+<%= link_to 'Delete', @avenger, method: :delete, class:"text-decoration-none btn btn-danger " , data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Back', avengers_path,class:"btn btn-dark" %>
