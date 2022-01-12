@@ -3,38 +3,25 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .homepage {
-  height: 100vh;
+  min-height: 495px;
   position: relative;
-  top: -24px;
-
-  background-image: image-url("bg-marvel.jpg");
-  // background-position: center;
+  top: 23px;
+  background-image: image-url("avengers-logo.png");
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
 }
-.title {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-weight: bold;
-  color: white;
-  font-size: 5rem;
-}
-.aboutPage {
-  // background-color: red;
-  height: 100vh;
-  position: relative;
-  top: -24px;
-  background-image: image-url("bg-avengers.jpg");
-  background-size: cover;
-}
+// .title {
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   font-weight: bold;
+//   font-size: 5rem;
+// }
+// .aboutPage {
+//   display: flex;
+// }
 .aboutText {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  padding-left: 10px;
   font-weight: bold;
-  color: white;
-  font-size: 3rem;
 }
