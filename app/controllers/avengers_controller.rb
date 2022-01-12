@@ -64,6 +64,6 @@ class AvengersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def avenger_params
-      params.require(:avenger).permit(:hero_name, :real_name, :age, :description, :statut)
+      params.require(:avenger).permit(:hero_name, :real_name, :age, :description, :statut, :user_id)
     end
 end

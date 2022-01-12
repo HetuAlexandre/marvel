@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_03_235512) do
+ActiveRecord::Schema.define(version: 2022_01_12_010027) do
 
   create_table "avengers", force: :cascade do |t|
     t.string "hero_name"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2022_01_03_235512) do
     t.string "statut"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_avengers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
