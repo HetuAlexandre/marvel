@@ -1,24 +1,32 @@
-<h1>Avengers list</h1>
-<table class="table table-striped table-bordered table-hover">
-  <thead class="table-dark">
-    <tr>
-      <th>Hero name</th>
-      <th>Real name</th>
-      <th>Statut</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @avengers.each do |avenger| %>
+<% if user_signed_in? %>
+  <h1 >Avengers list</h1>
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="table-dark">
       <tr>
-        <td><%= link_to avenger.hero_name, avenger ,class:"text-decoration-none" %></td>
-        <td><%= avenger.real_name %></td>
-        <td><%= avenger.statut %></td>
-        <td><%= link_to 'Edit', edit_avenger_path(avenger),class:"text-decoration-none"  %></td>
-        <td><%= link_to 'Delete', avenger, method: :delete,class:"text-decoration-none" , data: { confirm: 'Are you sure?' } %></td>
+        <th>Hero name</th>
+        <th>Real name</th>
+        <th>Statut</th>
+        <th>User Id</th>
+        <th> </th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<br>
-<% link_to 'New Avenger', new_avenger_path,class:"btn btn-secondary" %>
+    </thead>
+    <tbody>
+      <% @avengers.each do |avenger| %>
+        <% if avenger.user == current_user%>
+          <tr>
+            <td><%= link_to avenger.hero_name, avenger ,class:"text-decoration-none" %></td>
+            <td><%= avenger.real_name %></td>
+            <td><%= avenger.statut %></td>
+            <td><%= avenger.user_id %></td>
+            <td><%= link_to 'Delete', avenger, method: :delete, class:"text-decoration-none btn btn-outline-danger btn-sm  " , data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  <br>
+  <%= link_to 'New Avenger', new_avenger_path,class:"btn btn-secondary" %>
+<% else %>
+  <div class="homepage">
+  </div>
+<% end %>
